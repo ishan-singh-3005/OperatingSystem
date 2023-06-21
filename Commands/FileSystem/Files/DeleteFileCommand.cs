@@ -16,7 +16,7 @@ namespace OperatingSystem.Commands.FileSystem
         {
             try
             {
-                Sys.FileSystem.VFS.VFSManager.DeleteFile(args[0]);
+                Sys.FileSystem.VFS.VFSManager.DeleteFile(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0]);
                 return "Successfully deleted file " + args[0];
             }
             catch (Exception e)

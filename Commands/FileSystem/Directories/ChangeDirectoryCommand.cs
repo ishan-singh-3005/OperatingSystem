@@ -25,7 +25,7 @@ namespace OperatingSystem.Commands.FileSystem.Directories
                 {
                     Directory.SetCurrentDirectory(currdir + args[0]);
                 }
-                return "";
+                return currdir;
             }
             catch (Exception e)
             {

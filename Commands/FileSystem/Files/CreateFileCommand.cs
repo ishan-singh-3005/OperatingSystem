@@ -16,7 +16,7 @@ namespace OperatingSystem.Commands.FileSystem.Files
         {
             try
             {
-                var file_stream = Sys.FileSystem.VFS.VFSManager.CreateFile(args[0]);
+                var file_stream = Sys.FileSystem.VFS.VFSManager.CreateFile(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0]);
                 return "Your file " + args[0] + " was created";
             }
             catch (Exception e)

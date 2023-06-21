@@ -19,11 +19,11 @@ namespace OperatingSystem.Commands.FileSystem
             string[] file_list;
             if (args.Length == 0)
             {
-                file_list = Directory.GetFiles(@"0:\");
-                directory_list = Directory.GetDirectories(@"0:\");
+                file_list = Directory.GetFiles(@"0:\" + Directory.GetCurrentDirectory());
+                directory_list = Directory.GetDirectories(@"0:\" + Directory.GetCurrentDirectory());
                 string dirs = string.Join("(d)\t", directory_list);
                 string files = string.Join("\t", file_list);
-                return dirs + "(d)\t" + files;
+                return  dirs + "(d)\t" + files;
             }
             else
             {

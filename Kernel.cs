@@ -24,7 +24,7 @@ namespace OperatingSystem
         protected override void Run()
         {
             string dir = Directory.GetCurrentDirectory();
-            Console.Write("~/" + dir + "> ");
+            Console.Write("~" + dir + "> ");
             String reponse;
             var input = Console.ReadLine();
             reponse = this.commandManager.processInput(input);

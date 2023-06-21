@@ -16,7 +16,7 @@ namespace OperatingSystem.Commands.FileSystem.Directories
         {
             try
             {
-                Sys.FileSystem.VFS.VFSManager.DeleteDirectory(args[0], true);
+                Sys.FileSystem.VFS.VFSManager.DeleteDirectory(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0], true);
              
                 return "Your directory " + args[0] + " was removed";
             }

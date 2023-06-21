@@ -16,7 +16,7 @@ namespace OperatingSystem.Commands.FileSystem.Directories
         {
             try
             {
-                var file_stream = Sys.FileSystem.VFS.VFSManager.CreateDirectory(args[0]);
+                var file_stream = Sys.FileSystem.VFS.VFSManager.CreateDirectory(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0]);
                 return "Your directory " + args[0] + " was created";
             }
             catch (Exception e)
