@@ -10,14 +10,21 @@ namespace OperatingSystem.Commands.FileSystem
 {
     public class WriteFileCommand : Command
     {
-        public WriteFileCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public WriteFileCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
             try
             {
-                File.WriteAllText(Directory.GetCurrentDirectory() + args[0], string.Join("", args.Skip(1).ToArray()));
-                return "Successfully updated " + args[0];
+                if (Sys.FileSystem.VFS.VFSManager.FileExists(args[0]))
+                {
+                    File.WriteAllText(args[0], string.Join("", args.Skip(1).ToArray()));
+                    return "Successfully updated " + args[0];
+                }
+                else
+                {
+                    return "Error while writing to file";
+                }
             }
             catch (Exception e)
             {

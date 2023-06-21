@@ -9,14 +9,13 @@ namespace OperatingSystem.Commands.System
 {
     public class SysInfoCommand : Command
     {
-        public SysInfoCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public SysInfoCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
-            var available_space = fs.GetAvailableFreeSpace(@"0:\");
-            var fs_type = fs.GetFileSystemType(@"0:\");
+            var available_space = Sys.FileSystem.VFS.VFSManager.GetAvailableFreeSpace(@"0:\");
 
-            return "Available Free Space: " + available_space + "\nFile System Type: " + fs_type;
+            return "Available Free Space: " + available_space;
         }
     }
 }

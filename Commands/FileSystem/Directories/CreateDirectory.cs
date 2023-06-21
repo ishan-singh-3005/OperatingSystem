@@ -10,16 +10,13 @@ namespace OperatingSystem.Commands.FileSystem.Directories
 {
     public class CreateDirectory : Command
     {
-        public CreateDirectory(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public CreateDirectory(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
             try
             {
-                if (Directory.Exists((Directory.GetCurrentDirectory() + args[0]))){
-                    return "Directory exists";
-                }
-                var file_stream = Directory.CreateDirectory(Directory.GetCurrentDirectory() + args[0]);
+                var file_stream = Sys.FileSystem.VFS.VFSManager.CreateDirectory(args[0]);
                 return "Your directory " + args[0] + " was created";
             }
             catch (Exception e)

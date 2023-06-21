@@ -10,7 +10,7 @@ namespace OperatingSystem.Commands.FileSystem.Directories
 {
     public class ChangeDirectoryCommand : Command
     {
-        public ChangeDirectoryCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public ChangeDirectoryCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {

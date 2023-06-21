@@ -10,7 +10,7 @@ namespace OperatingSystem.Commands.System
 {
     public class ShutDownCommand : Command
     {
-        public ShutDownCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public ShutDownCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {

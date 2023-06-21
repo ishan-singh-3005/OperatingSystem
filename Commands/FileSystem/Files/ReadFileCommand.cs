@@ -10,13 +10,20 @@ namespace OperatingSystem.Commands.FileSystem
 {
     public class ReadFileCommand : Command
     {
-        public ReadFileCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public ReadFileCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
             try
             {
-                return File.ReadAllText(Directory.GetCurrentDirectory() + args[0]);
+                if (Sys.FileSystem.VFS.VFSManager.FileExists(args[0]))
+                {
+                    return File.ReadAllText(args[0]);
+                }
+                else
+                {
+                    return "Error while writing to file";
+                }
             }
             catch (Exception e)
             {

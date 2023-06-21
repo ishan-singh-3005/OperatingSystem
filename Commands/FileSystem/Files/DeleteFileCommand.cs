@@ -10,13 +10,13 @@ namespace OperatingSystem.Commands.FileSystem
 {
     public class DeleteFileCommand : Command
     {
-        public DeleteFileCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public DeleteFileCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
             try
             {
-                File.Delete(Directory.GetCurrentDirectory() + args[0]);
+                Sys.FileSystem.VFS.VFSManager.DeleteFile(args[0]);
                 return "Successfully deleted file " + args[0];
             }
             catch (Exception e)

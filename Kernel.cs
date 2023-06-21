@@ -4,20 +4,21 @@ using System.Text;
 using Sys = Cosmos.System;
 using OperatingSystem.Commands;
 using System.IO;
+using Cosmos.System.FileSystem;
 
 namespace OperatingSystem
 {
     public class Kernel : Sys.Kernel
     {
         private CommandManager commandManager;
-        
-        Sys.FileSystem.CosmosVFS fs = new Sys.FileSystem.CosmosVFS();
+        private CosmosVFS vfs;        
 
         protected override void BeforeRun()
         {
-            Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs);
+            this.vfs= new CosmosVFS();
+            Sys.FileSystem.VFS.VFSManager.RegisterVFS(this.vfs);
             Console.WriteLine("AmongOS booted successfully.");
-            this.commandManager= new CommandManager(fs);
+            this.commandManager= new CommandManager();
         }
 
         protected override void Run()

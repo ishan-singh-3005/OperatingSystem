@@ -11,7 +11,7 @@ namespace OperatingSystem.Commands.FileSystem
 {
     public class ListCommand : Command
     {
-        public ListCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public ListCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
@@ -19,8 +19,8 @@ namespace OperatingSystem.Commands.FileSystem
             string[] file_list;
             if (args.Length == 0)
             {
-                file_list = Directory.GetFiles(@"0:\" + Directory.GetCurrentDirectory());
-                directory_list = Directory.GetDirectories(@"0:\" + Directory.GetCurrentDirectory());
+                file_list = Directory.GetFiles(@"0:\");
+                directory_list = Directory.GetDirectories(@"0:\");
                 string dirs = string.Join("(d)\t", directory_list);
                 string files = string.Join("\t", file_list);
                 return dirs + "(d)\t" + files;
@@ -32,14 +32,14 @@ namespace OperatingSystem.Commands.FileSystem
                     case "--help":
                         return "Get a list of files and directories";
                     default:
-                        if (!Directory.Exists(@"0:\" + Directory.GetCurrentDirectory() + args[0]))
+                        if (!Directory.Exists(@"0:\" + args[0]))
                         {
                             return "Directory does not exist";
                         }
                         else
                         {
-                            file_list = Directory.GetFiles(@"0:\" + Directory.GetCurrentDirectory() + args[0]);
-                            directory_list = Directory.GetDirectories(@"0:\" + Directory.GetCurrentDirectory() + args[0]);
+                            file_list = Directory.GetFiles(@"0:\" + args[0]);
+                            directory_list = Directory.GetDirectories(@"0:\" + args[0]);
                             string files = string.Join("\t", file_list);
                             string dirs = string.Join("(d)\t", directory_list);
                             return dirs + "(d)\t" + files;

@@ -10,12 +10,10 @@ namespace OperatingSystem.Commands
     public class Command
     {
         public readonly String name;
-        public Sys.FileSystem.CosmosVFS fs;
 
-        public Command(String name, Sys.FileSystem.CosmosVFS fs) 
+        public Command(String name) 
         { 
             this.name = name;
-            this.fs = fs;
         }
 
         public virtual String execute(String[] args) { return "";  }

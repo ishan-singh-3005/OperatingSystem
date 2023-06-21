@@ -10,13 +10,14 @@ namespace OperatingSystem.Commands.FileSystem.Directories
 {
     public class RemoveDirectoryCommand : Command
     {
-        public RemoveDirectoryCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public RemoveDirectoryCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
             try
             {
-                Directory.Delete(Directory.GetCurrentDirectory() + args[0]);
+                Sys.FileSystem.VFS.VFSManager.DeleteDirectory(args[0], true);
+             
                 return "Your directory " + args[0] + " was removed";
             }
             catch (Exception e)

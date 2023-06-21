@@ -9,7 +9,7 @@ namespace OperatingSystem.Commands.System
 {
     public class HelpCommand : Command
     {
-        public HelpCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public HelpCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {

@@ -17,21 +17,21 @@ namespace OperatingSystem.Commands
     {
         private List<Command> commands;
 
-        public CommandManager(Sys.FileSystem.CosmosVFS fs) 
+        public CommandManager() 
         {
             this.commands = new List<Command>(1)
             {
-                new HelpCommand("help", fs),
-                new SysInfoCommand("sysinfo", fs),
-                new ListCommand("ls", fs),
-                new CreateFileCommand("touch", fs),
-                new WriteFileCommand("wrt", fs),
-                new ReadFileCommand("cat", fs),
-                new DeleteFileCommand("rm", fs),
-                new ShutDownCommand("shutdown", fs),
-                new CreateDirectory("mkdir", fs),
-                new RemoveDirectoryCommand("rmd", fs),
-                new ChangeDirectoryCommand("cd", fs)
+                new HelpCommand("help"),
+                new SysInfoCommand("sysinfo"),
+                new ListCommand("ls"),
+                new CreateFileCommand("touch"),
+                new WriteFileCommand("wrt"),
+                new ReadFileCommand("cat"),
+                new DeleteFileCommand("rm"),
+                new ShutDownCommand("shutdown"),
+                new CreateDirectory("mkdir"),
+                new RemoveDirectoryCommand("rmd"),
+                new ChangeDirectoryCommand("cd")
             };
         }
 

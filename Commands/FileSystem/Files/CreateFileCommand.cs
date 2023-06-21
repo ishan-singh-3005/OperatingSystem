@@ -10,17 +10,13 @@ namespace OperatingSystem.Commands.FileSystem.Files
 {
     public class CreateFileCommand : Command
     {
-        public CreateFileCommand(string name, Sys.FileSystem.CosmosVFS fs) : base(name, fs) { }
+        public CreateFileCommand(string name) : base(name) { }
 
         public override string execute(string[] args)
         {
             try
             {
-                if (File.Exists(Directory.GetCurrentDirectory() + "/" + args[0]))
-                {
-                    return "File exists";
-                }
-                var file_stream = File.Create(Directory.GetCurrentDirectory() + args[0]);
+                var file_stream = Sys.FileSystem.VFS.VFSManager.CreateFile(args[0]);
                 return "Your file " + args[0] + " was created";
             }
             catch (Exception e)
