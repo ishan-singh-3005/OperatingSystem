@@ -18,7 +18,7 @@ namespace OperatingSystem.Commands.FileSystem
             {
                 if (Sys.FileSystem.VFS.VFSManager.FileExists(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0]))
                 {
-                    return File.ReadAllText(args[0]);
+                    return File.ReadAllText(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0]);
                 }
                 else
                 {

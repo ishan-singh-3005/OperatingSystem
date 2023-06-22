@@ -18,7 +18,7 @@ namespace OperatingSystem.Commands.FileSystem
             {
                 if (Sys.FileSystem.VFS.VFSManager.FileExists(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0]))
                 {
-                    File.WriteAllText(args[0], string.Join("", args.Skip(1).ToArray()));
+                    File.WriteAllText(@"0:" + Directory.GetCurrentDirectory() + "\\" + args[0], string.Join(" ", args.Skip(1).ToArray()));
                     return "Successfully updated " + args[0];
                 }
                 else

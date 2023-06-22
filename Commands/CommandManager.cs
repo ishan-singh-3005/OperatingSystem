@@ -31,7 +31,8 @@ namespace OperatingSystem.Commands
                 new ShutDownCommand("shutdown"),
                 new CreateDirectory("mkdir"),
                 new RemoveDirectoryCommand("rmd"),
-                new ChangeDirectoryCommand("cd")
+                new ChangeDirectoryCommand("cd"),
+                new EditFileCommand("edit")
             };
         }
 

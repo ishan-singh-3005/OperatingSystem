@@ -11,14 +11,14 @@ namespace OperatingSystem
     public class Kernel : Sys.Kernel
     {
         private CommandManager commandManager;
-        private CosmosVFS vfs;        
+        private CosmosVFS vfs;
 
         protected override void BeforeRun()
         {
-            this.vfs= new CosmosVFS();
+            this.vfs = new CosmosVFS();
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(this.vfs);
-            Console.WriteLine("AmongOS booted successfully.");
-            this.commandManager= new CommandManager();
+            Console.WriteLine("AmogOS booted successfully.");
+            this.commandManager = new CommandManager();
         }
 
         protected override void Run()
@@ -29,7 +29,7 @@ namespace OperatingSystem
             var input = Console.ReadLine();
             reponse = this.commandManager.processInput(input);
             Console.WriteLine(reponse);
-            
         }
+
     }
 }
