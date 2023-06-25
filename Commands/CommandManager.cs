@@ -19,7 +19,7 @@ namespace OperatingSystem.Commands
 
         public CommandManager() 
         {
-            this.commands = new List<Command>(1)
+            this.commands = new List<Command>(13)
             {
                 new HelpCommand("help"),
                 new SysInfoCommand("sysinfo"),
@@ -32,7 +32,8 @@ namespace OperatingSystem.Commands
                 new CreateDirectory("mkdir"),
                 new RemoveDirectoryCommand("rmd"),
                 new ChangeDirectoryCommand("cd"),
-                new EditFileCommand("edit")
+                new EditFileCommand("edit"),
+                new CompressFileCommand("compress"),
             };
         }
 

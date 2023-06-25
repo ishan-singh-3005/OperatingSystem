@@ -269,6 +269,7 @@ namespace OperatingSystem.FileEditor
         }
         public static void StartMIV()
         {
+            printMIVStartScreen();
             Console.WriteLine("Enter file's filename to open:");
             Console.WriteLine("If the specified file does not exist, it will be created.");
             file = Console.ReadLine();
